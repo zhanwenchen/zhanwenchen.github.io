@@ -34,21 +34,23 @@ li {
 
 .logo {
 	float:left;
-	width:265px;
+	width: 90%;
+	/* width:265px; */
 	margin: 3px 0;
 }
 
 .email {
 	float:left;
-	margin-left: 40px;
+	margin-left: 15px;
 	text-shadow: rgba(0,0,0,.2) 0 1px 2px;
 }
 
 .site-title {
 	color: #424242;
-	font-size: 23px;
+	font-size: 30px;
 	line-height: 30px;
 	letter-spacing: -1px;
+	margin-top: 1em;
 	margin-bottom: 0;
 	float: left;
 	text-shadow: rgba(0,0,0,.2) 0 1px 2px;
@@ -133,4 +135,23 @@ h1 {
 	float: left;
 	width: 67%;
 	text-align:justify;
+}
+
+#left
+{
+    /* min-width:100%; */
+    /* max-width:800px; */
+    float:left;
+}
+
+#left>p {
+	font-size: 9pt;
+	max-width: 225px;
+}
+
+#right
+{
+		margin-left: 10px;
+    width: 30em;
+    float:right;
 }
