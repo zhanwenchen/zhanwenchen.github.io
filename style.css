@@ -187,5 +187,9 @@ iframe {
 	text-align: left;
 	min-height: 0px;
 	margin: 0;
-	max-width: 225px;
+	max-width: 210px;
+}
+
+.photo-horizontal>p {
+	max-width: 280px !important;
 }
