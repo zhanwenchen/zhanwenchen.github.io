@@ -34,7 +34,7 @@ li {
 
 .logo {
 	float:left;
-	width: 90%;
+	width: 95%;
 	/* width:265px; */
 	margin: 3px 0;
 }
@@ -139,14 +139,14 @@ h1 {
 
 #left
 {
-    /* min-width:100%; */
-    /* max-width:800px; */
     float:left;
 }
 
 #left>p {
 	font-size: 9pt;
 	max-width: 225px;
+	margin-top: 0;
+	margin-bottom: 0;
 }
 
 #right
@@ -154,4 +154,38 @@ h1 {
 		margin-left: 10px;
     width: 30em;
     float:right;
+}
+
+iframe {
+		margin: 0 auto;
+    display: block;
+    border-style:none;
+}
+
+#portrait {
+	margin-top: 15px;
+}
+
+#gallery {
+	width: 100%;
+	max-width: 800px;
+	margin: 0 auto;
+	text-align:center;
+	clear: both;
+}
+
+#gallery>div {
+	display:inline-block;
+	width: 110%
+	min-width: 30%;
+	height: 400px;
+	vertical-align: top;
+	min-height: 400px;
+	margin-top:0;
+}
+.photo>p {
+	text-align: left;
+	min-height: 0px;
+	margin: 0;
+	max-width: 225px;
 }
