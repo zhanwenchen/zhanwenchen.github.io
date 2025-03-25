@@ -2,9 +2,9 @@
 -- For educational/workshop purposes only
 
 -- Create databases if they don't exist
-IF NOT EXISTS (SELECT * FROM sys.databases WHERE name = 'FULL')
+IF NOT EXISTS (SELECT * FROM sys.databases WHERE name = 'FULL_')
 BEGIN
-    CREATE DATABASE FULL;
+    CREATE DATABASE FULL_;
 END;
 
 IF NOT EXISTS (SELECT * FROM sys.databases WHERE name = 'OMOP_FULL')
@@ -12,7 +12,7 @@ BEGIN
     CREATE DATABASE OMOP_FULL;
 END;
 
-USE FULL;
+USE FULL_;
 
 -- Drop tables if they exist to avoid c-- Script to create example Epic tables with fake data
 -- For educational/workshop purposes only
@@ -118,11 +118,11 @@ GROUP BY 1,2,3,4,6,7,8,9,10,11;');
 -- Print success message
 SELECT 'Example Epic tables created successfully with fake data' AS Status;
 onflicts
-IF OBJECT_ID('FULL..ENCOUNTERS', 'U') IS NOT NULL
-    DROP TABLE FULL..ENCOUNTERS;
+IF OBJECT_ID('FULL_..ENCOUNTERS', 'U') IS NOT NULL
+    DROP TABLE FULL_..ENCOUNTERS;
 
 -- Create the ENCOUNTERS table (inferred from your SELECT statement)
-CREATE TABLE FULL..ENCOUNTERS (
+CREATE TABLE FULL_..ENCOUNTERS (
     ENC_HASH VARCHAR(50) PRIMARY KEY,
     ADMISSION_DT DATETIME NOT NULL,
     DISCHARGE_DT DATETIME,
@@ -135,7 +135,7 @@ CREATE TABLE FULL..ENCOUNTERS (
 );
 
 -- Insert sample data into ENCOUNTERS
-INSERT INTO FULL..ENCOUNTERS
+INSERT INTO FULL_..ENCOUNTERS
     (ENC_HASH, ADMISSION_DT, DISCHARGE_DT, PT_CLASS, ADMIT_SOURCE, DISCHARGE_DISP, COMPLAINT, SRV_CODE, PATIENT_TYPE)
 VALUES
     ('ENC001', '2023-01-10 08:30:00', '2023-01-10 15:45:00', 'E', 'SELF', 'HOME', 'Chest pain', 'ER001', 'EMERGENCY'),
@@ -192,7 +192,7 @@ WHEN PT_CLASS =''I'' THEN ''IP''
 WHEN PT_CLASS =''O'' OR PT_CLASS =''B'' THEN ''OP''
 ELSE ''OP'' END AS ENC_TYPE,
  ADMIT_SOURCE, DISCHARGE_DISP, COMPLAINT, SRV_CODE, PATIENT_TYPE
-FROM FULL..ENCOUNTERS E
+FROM FULL_..ENCOUNTERS E
 LEFT JOIN OMOP_FULL..ENCOUNTER_XWALK X ON X.ENC_HASH=E.ENC_HASH
 GROUP BY 1,2,3,4,6,7,8,9,10,11;');
 
